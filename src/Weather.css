@@ -79,8 +79,7 @@
     color:rgb(33, 33, 33);
     font-weight: 400;
     position: relative;
-    top: -32px;
-    margin-left: 5px;
+    top: -34px;
     line-height: 1;
 }
 @media (max-width: 800px) {

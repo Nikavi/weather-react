@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-  let weatherData = {
-    city: "New York",
-    country: "USA",
-    date: "Sunday 11:00",
-    temperature: 10,
-    description: "Partly cloudy",
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
-    humidity: 10,
-    wind: 5,
-  };
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  function handleResponse(response) {
+    console.log(response.data);
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      wind: response.data.wind.speed,
+      humidity: response.data.main.humidity,
+      city: response.data.name,
+      date:"Monday 12:00",
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloud.png",
+      description: response.data.weather[0].description
+    });
+   
+  }
+
+  if (weatherData.ready) {
   return (
     <div className="Weather">
       <div className="weather-app-wrapper">
@@ -45,13 +53,13 @@ export default function Weather() {
           </form>
           <h1>
             {" "}
-            {weatherData.city}, {weatherData.country}
+           {weatherData.city}
           </h1>
           <ul>
             <li className="col-sm-6">
-              Last updated at {weatherData.date}
+              {weatherData.date}
               <br />
-              <span> {weatherData.description} </span>
+              <li className="text-capitalize"> {weatherData.description} </li>
             </li>
             <br />
             <li className="col-sm-6"></li>
@@ -60,14 +68,12 @@ export default function Weather() {
             <div className="col-sm-6">
               <div className="clearfix">
                 <img
-                  src={weatherData.imgUrl}
+                  src={weatherData.iconUrl}
                   alt={weatherData.description}
                   className="float-left"
                 />
                 <div className="float-left">
-                  <span className="temperature">
-                    {weatherData.temperature}
-                  </span>
+                  <span className="temperature">{Math.round(weatherData.temperature)}</span>
                   <span className="unit">
                     <a href="/" className="active">
                       ˚C{" "}
@@ -79,9 +85,8 @@ export default function Weather() {
             </div>
             <div className="col-sm-6">
               <ul>
-                <li>Precipitation: 15%</li>
                 <li>Humidity: {weatherData.humidity} %</li>
-                <li>Wind: {weatherData.wind} m/h</li>
+                <li>Wind: {Math.round(weatherData.wind)} m/h</li>
               </ul>
             </div>
           </div>
@@ -89,4 +94,12 @@ export default function Weather() {
       </div>
     </div>
   );
+  } else {
+    const apiKey = "9abaed0b9d9528a5275130c1d2682623";
+    const units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&units=${units}&cnt=6&appid=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading...";
+  }
 }
