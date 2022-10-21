@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Weather.css";
 
 export default function Weather() {
   let weatherData = {
@@ -22,21 +22,20 @@ export default function Weather() {
                 <input
                   type="search"
                   placeholder="Type a city.."
-                  autoComplete="off"
-                  className="form-control shadow-sm"
+                  className="form-control shadow-sm mt-2"
+                  autoFocus="on"
                 />
               </div>
               <div className="col-sm-3">
                 <input
                   type="submit"
                   value="Search"
-                  className="form-control btn btn-secondary shadow-sm"
-                  id="enter-city"
+                  className="form-control btn btn-secondary shadow-sm w-100 mt-2"
                 />
               </div>
               <div className="col-sm-3">
                 <button
-                  className="btn btn-light btn-sm shadown-sm w-100"
+                  className="btn btn-light btn-sm shadown-sm w-100 mt-2"
                   id="current-location-button"
                 >
                   Current
@@ -47,7 +46,6 @@ export default function Weather() {
           <h1>
             {" "}
             {weatherData.city}, {weatherData.country}
-            <span></span>
           </h1>
           <ul>
             <li className="col-sm-6">
@@ -58,21 +56,21 @@ export default function Weather() {
             <br />
             <li className="col-sm-6"></li>
           </ul>
-
-          <div className="row">
+          <div className="row mt-3">
             <div className="col-sm-6">
-              <div className="clearfix weather-temperature">
+              <div className="clearfix">
                 <img
                   src={weatherData.imgUrl}
                   alt={weatherData.description}
-                  className="weather-icon float-left"
-                  id="icon"
+                  className="float-left"
                 />
                 <div className="float-left">
-                  <span className="temperature"> </span>
-                  <span className="units">
+                  <span className="temperature">
+                    {weatherData.temperature}
+                  </span>
+                  <span className="unit">
                     <a href="/" className="active">
-                      <strong>{weatherData.temperature}</strong> ˚C{" "}
+                      ˚C{" "}
                     </a>
                     | <a href="/">˚F</a>
                   </span>
@@ -81,6 +79,7 @@ export default function Weather() {
             </div>
             <div className="col-sm-6">
               <ul>
+                <li>Precipitation: 15%</li>
                 <li>Humidity: {weatherData.humidity} %</li>
                 <li>Wind: {weatherData.wind} m/h</li>
               </ul>
@@ -91,4 +90,3 @@ export default function Weather() {
     </div>
   );
 }
-
