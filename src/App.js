@@ -6,15 +6,14 @@ export default function App() {
   return (
     <div className="App">
       <div class="container">
-        <header className="App-header">
-          <Weather defaultCity="Milan"/>
-        </header>
+        <Weather defaultCity="Milan" />
+        
         <footer>
-          <small class="link text-center">
             This project was coded by
             <a
               href="https://www.linkedin.com/in/veronika-kulikova-455b47243/"
-              rel="noopener"
+               target="_blank"
+            rel="noopener noreferrer"
             >
               {" "}
               Veronika Kulikova{" "}
@@ -22,18 +21,19 @@ export default function App() {
             and is{" "}
             <a
               href="https://github.com/Nikavi/My-weather-project"
-              rel="noopener"
+              target="_blank"
+            rel="noopener noreferrer"
             >
               open-sourced on GitHub{" "}
             </a>{" "}
             and{" "}
             <a
               href="https://mellow-clafoutis-bd26f4.netlify.app/"
-              rel="noopener"
+               target="_blank"
+            rel="noopener noreferrer"
             >
               hosted on Netlify
             </a>
-          </small>
         </footer>
       </div>
     </div>

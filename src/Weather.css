@@ -1,20 +1,21 @@
 .Weather {
-    border: 1px solid #dadde1;
-    border-radius: 4px;
-}
-.Weather h1 {
+  font-family: "Cinzel", serif;
+  font-family: "Quicksand", sans-serif;
+  border: 1px solid #dadde1;
+  padding: 16px;
+  border-radius: 4px;
   color: rgb(135, 135, 135);
-  display: block;
+}
+
+.Weather h1 {
   font-size: 24px;
   font-weight: 100;
-  height: 28px;
   line-height: 29px;
-  text-align: left;
   margin: 20px 0 0 0;
 }
 
 .Weather ul {
-  margin: 0 0 10px;
+  margin: 0;
   padding: 0;
 }
 
@@ -24,40 +25,31 @@
   line-height: 19px;
   list-style: none;
 }
-.Weather form {
-    margin-bottom: 20px;
+
+.Weather #current-location-button {
+  padding: 8px;
 }
 
 .Weather canvas {
-    margin-right: 10px;
-    margin-top: 5px;
-    display: inline-block;
-    
+  margin-right: 10px auto;
 }
+
 .Weather .temperature {
   font-weight: bold;
   color: rgb(33, 33, 33);
   font-size: 64px;
   line-height: 64px;
+  margin-left: 5px;
   font-weight: 400;
+  margin-left: 10px;
 }
+
 .Weather .unit {
-    font-size: 16px;
-    color:rgb(33, 33, 33);
-    font-weight: 400;
-    position: relative;
-    top: -34px;
-    line-height: 1;
+  font-size: 16px;
+  color: rgb(33, 33, 33);
+  font-weight: 400;
+  position: relative;
+  top: -34px;
+  line-height: 1;
 }
-@media (max-width: 800px) {
-  form {
-    display: flex;
-    justify-content: center;
-  }
-  #current-location-button {
-    margin-top: 10px;
-  }
-  #enter-city {
-    margin-top: 10px;
-  }
-}
+
