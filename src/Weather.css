@@ -1,17 +1,51 @@
 .Weather {
   font-family: "Cinzel", serif;
   font-family: "Quicksand", sans-serif;
-  border: 1px solid #dadde1;
-  padding: 16px;
-  border-radius: 4px;
-  color: rgb(135, 135, 135);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
+  color: #878787;
+  padding: 40px;
+}
+
+.Weather form {
+  margin-top: 40px;
+  border-bottom: 1px solid #f9f7fe;
+  padding-bottom: 30px;
+}
+
+.Weather .search-input {
+  background: #f9f7fe;
+  border: none;
+  padding: 15px 20px;
+  display: inline-block;
+  border-radius: 6px;
+  color: #14213d;
+  font-size: 16px;
+  height: 50px;
+  line-height: 20px;
+}
+
+.Weather .btn {
+  background: #14213d;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 15px 0;
+  border: none;
+  height: 50px;
+}
+
+.Weather .search-input::placeholder {
+  line-height: 20px;
+  color: #14213d;
 }
 
 .Weather h1 {
-  font-size: 24px;
-  font-weight: 100;
+  font-size: 38px;
+  font-weight: bold;
   line-height: 29px;
-  margin: 20px 0 0 0;
+  margin: 20px 0 10px 0;
+  color: #14213d;
 }
 
 .Weather ul {
@@ -21,35 +55,49 @@
 
 .Weather li {
   font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
+  font-weight: 500;
+  line-height: 20px;
   list-style: none;
+  margin-bottom: 5px;
+  color: #14213d;
 }
 
-.Weather #current-location-button {
-  padding: 8px;
+.Weather li strong {
+  color: #f65282;
+  font-weight: normal;
 }
 
 .Weather canvas {
-  margin-right: 10px auto;
+  margin: 10px 0;
 }
 
 .Weather .temperature {
-  font-weight: bold;
-  color: rgb(33, 33, 33);
-  font-size: 64px;
-  line-height: 64px;
+  color: #14213d;
   margin-left: 5px;
-  font-weight: 400;
+  font-weight: 700;
   margin-left: 10px;
-}
-
-.Weather .unit {
-  font-size: 16px;
-  color: rgb(33, 33, 33);
-  font-weight: 400;
-  position: relative;
-  top: -34px;
+  font-size: 80px;
   line-height: 1;
 }
 
+.Weather .unit {
+  color: hsl(221, 51%, 16%);
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: normal;
+  position: relative;
+  line-height: 1;
+  top: -34px;
+}
+
+.Weather footer {
+  font-size: 18px;
+  margin-top: 40px;
+  line-height: 20px;
+  text-align: center;
+  color: rgba(39, 33, 66, 0.4);
+}
+
+.Weather footer a {
+  color: #f65282;
+}

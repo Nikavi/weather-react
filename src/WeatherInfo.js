@@ -2,37 +2,36 @@ import React from "react";
 import FormatedDate from "./FormatedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
+import "./WeatherInfo";
 
 export default function WeatherInfo(props) {
-    return (
-      <div className="WeatherInfo">
-        <h1> {props.data.city}</h1>
-        <ul>
-          <li className="col-sm-6">
-            <FormatedDate date={props.data.date} />
-          </li>
-          <li className="text-capitalize"> {props.data.description} </li>
-        </ul>
-        <div className="row mt-3">
-          <div className="col-sm-6">
-            <div className="clearfix">
-              <div className="float-left icon">
-                <WeatherIcon
-                  code={props.data.icon} size={52}
-                />
-              </div>
-              <div className="float-left">
-                <WeatherTemperature celsius={props.data.temperature} />               
-              </div>
+  return (
+    <div className="WeatherInfo">
+      <div className="row">
+        <div className="col-sm-6">
+          <h1>{props.data.city}</h1>
+          <ul>
+            <li className="text-capitalize">
+              <FormatedDate date={props.data.date} />
+              {props.data.description}
+            </li>
+            <li>
+              Humidity: <strong>{props.data.humidity}%</strong>
+              <br /> Wind: <strong>{props.data.wind}m/s</strong>
+            </li>
+          </ul>
+        </div>
+        <div className="col-sm-6">
+          <div className="temperature-container d-flex justify-content-space-evenly ">
+            <WeatherIcon code={props.data.icon} size={112} />
+            <div>
+              <span className="temperature">
+                <WeatherTemperature celsius={props.data.temperature} />
+              </span>
             </div>
-          </div>
-          <div className="col-sm-6">
-            <ul>
-              <li>Humidity: {props.data.humidity} %</li>
-              <li>Wind: {Math.round(props.data.wind)} m/h</li>
-            </ul>
           </div>
         </div>
       </div>
-    );
+    </div>
+  );
 }
