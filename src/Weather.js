@@ -75,7 +75,7 @@ export default function Weather(props) {
           </a>{" "}
           and is{" "}
           <a
-            href="https://github.com/Nikavi/My-weather-project"
+            href="https://github.com/Nikavi/weather-react"
             target="_blank"
             rel="noopener noreferrer"
           >
